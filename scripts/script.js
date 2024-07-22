@@ -1,4 +1,5 @@
 const gridContainer = document.querySelector("#grid-container");
+const currentColor = document.querySelector("#current-color");
 
 /*
 let height = screen.height;
@@ -6,7 +7,7 @@ gridContainer.style.minHeight = gridViewportHeight + "px";
 gridContainer.style.minWidth = gridViewportHeight + "px";
 */
 
-const gridViewportHeight = 700;
+const gridViewportHeight = 600;
 const rows = 16;
 const columns = 16;
 const numberOfSquares = rows * columns;
@@ -27,7 +28,7 @@ function setGridLayout() {
     const squares= document.querySelectorAll(".squareClass");
     squares.forEach((square) => {
         square.addEventListener("mouseover", () => {
-            event.target.style.backgroundColor = "blue";
+            event.target.style.backgroundColor = currentColor.value;
         });
     });
 };
