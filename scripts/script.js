@@ -20,8 +20,14 @@ function setGridLayout() {
     for (i=0; i < numberOfSquares; i++) {
         const square = document.createElement("div");
         square.className = "squareClass";
-        square.textContent = "hi";
         square.style.flexBasis = squareHeight;
         gridContainer.appendChild(square);
     }; 
+
+    const squares= document.querySelectorAll(".squareClass");
+    squares.forEach((square) => {
+        square.addEventListener("mouseover", () => {
+            event.target.style.backgroundColor = "blue";
+        });
+    });
 };
