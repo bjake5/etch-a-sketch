@@ -22,17 +22,17 @@ let columns = 16;
 createGridLayout();
 
 function createGridLayout() {
-    let height = window.height;
-    let width = window.width;
-    if (height > width) gridViewportHeight = width * .7;
-    if (width > height) gridViewportHeight = height * .7;
+    let height = screen.height;
+    let width = screen.width;
+    if (height > width) gridViewportHeight = width * .9;
+    if (width > height) gridViewportHeight = height * .9;
     gridContainer.style.height = gridViewportHeight + "px";
     gridContainer.style.width = gridViewportHeight + "px";
     let squareHeight = gridViewportHeight / rows + "px";
     let numberOfSquares = rows * columns; 
     
     // Setup grid settings
-     currentGridSizeLabel.textContent = `${rows} rows x ${columns} columns | ${numberOfSquares} squares`;
+     currentGridSizeLabel.textContent = `${rows} x ${columns} | ${numberOfSquares} squares`;
      eraseGridButton.textContent = `Erase Grid`;
      changeGridSizeButton.textContent = `Change Grid Size`;
 
