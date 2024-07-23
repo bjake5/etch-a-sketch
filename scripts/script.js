@@ -22,10 +22,10 @@ let columns = 16;
 createGridLayout();
 
 function createGridLayout() {
-    let height = screen.height;
-    let width = screen.width;
-    if (height > width) gridViewportHeight = width * .6;
-    if (width > height) gridViewportHeight = height * .6;
+    let height = window.height;
+    let width = window.width;
+    if (height > width) gridViewportHeight = width * .7;
+    if (width > height) gridViewportHeight = height * .7;
     gridContainer.style.height = gridViewportHeight + "px";
     gridContainer.style.width = gridViewportHeight + "px";
     let squareHeight = gridViewportHeight / rows + "px";
