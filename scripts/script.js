@@ -1,25 +1,43 @@
 const gridContainer = document.querySelector("#grid-container");
 const gridSizeSettings = document.querySelector("#grid-size-settings");
+const colorSettings = document.querySelector("color-settings");
 const isUserColorEnabled = document.getElementById("user-color-selection");
 const userCurrentColorSelection = document.getElementById("user-current-color");
 const isRandomColorEnabled = document.getElementById("random-color-selection");
+const randomCurrentColorPreview = document.querySelector("#random-color-selection-preview");
+const isEraserEnabled = document.getElementById("eraser-selection");
 
+const isMouseoverEnabled = document.getElementById("mouseover-grid-nav-option");
+const isOnClickEnabled = document.getElementById("onclick-grid-nav-option");
+
+const currentGridSizeLabel = document.createElement("div");
+const changeGridSizeButton = document.createElement("button");
+const eraseGridButton = document.createElement("button");
 /*
 let height = screen.height;
 gridContainer.style.minHeight = gridViewportHeight + "px";
 gridContainer.style.minWidth = gridViewportHeight + "px";
 */
 
-const gridViewportHeight = 600;
-const rows = 16;
-const columns = 16;
-const numberOfSquares = rows * columns;
-const squareHeight = gridViewportHeight / rows + "px";
-
+let gridViewportHeight = 600;
+let rows = 16;
+let columns = 16;
 
 createGridLayout();
 
 function createGridLayout() {
+    let squareHeight = gridViewportHeight / rows + "px";
+    let numberOfSquares = rows * columns; 
+    
+    // Setup grid settings
+     currentGridSizeLabel.textContent = `${rows} rows x ${columns} columns | ${numberOfSquares} squares`;
+     eraseGridButton.textContent = `Erase Grid`;
+     changeGridSizeButton.textContent = `Change Grid Size`;
+
+     gridSizeSettings.appendChild(currentGridSizeLabel);
+     gridSizeSettings.appendChild(eraseGridButton); 
+     gridSizeSettings.appendChild(changeGridSizeButton);  
+
     // Create squares
     for (i=0; i < numberOfSquares; i++) {
         const square = document.createElement("div");
@@ -27,30 +45,74 @@ function createGridLayout() {
         square.style.flexBasis = squareHeight;
         gridContainer.appendChild(square);
     }; 
-
-    // Set default color to the background color
-    isUserColorEnabled.checked = true;
-
+    
     runEtchASketch();
     return false;
 };
 
 function runEtchASketch () {
+    // Set default color to the background color
+    isUserColorEnabled.checked = true;
+
+    // Set default behavior to mouseover
+    isMouseoverEnabled.checked = true;
+
+    // Monitor for click events to change grid size
+    changeGridSizeButton.addEventListener("click", () => {
+        changeGridLayout();
+        return false;
+    });
+
+    // Monitor for click events to change grid size
+    eraseGridButton.addEventListener("click", () => {
+        eraseGrid();
+        return false;
+    });    
+
+    // Monitor for mouseover events to change the color of the square
     const squares= document.querySelectorAll(".squareClass");
+    
     squares.forEach((square) => {
         square.addEventListener("mouseover", () => {
-            if(isUserColorEnabled.checked == true) {
-                event.target.style.backgroundColor = userCurrentColorSelection.value;
-            }
-            else if(isRandomColorEnabled.checked == true) {
-                let randomCurrentColorSelection = "#" + ((1 << 24) * Math.random() | 0).toString(16).padStart(6, "0");
-                
-                event.target.style.backgroundColor = randomCurrentColorSelection;
-            }
+            if(isMouseoverEnabled.checked == true) {
+                changeColor();
+            };  
+            return false;
+        });
+        square.addEventListener("click", () => {
+            if(isOnClickEnabled.checked == true) {
+                changeColor();
+            };    
+            return false;
         });
     });
 };
 
-function changeColor () {
+function changeGridLayout() {
+    let newGridSize = Number(prompt("How many squares would you like on each side?"));
+    while (newGridSize > 100) {
+        newGridSize = Number(prompt("How many squares would you like on each side?"));
+    }
+    rows = newGridSize;
+    columns = newGridSize;
+    gridContainer.replaceChildren();
+    gridSizeSettings.replaceChildren();
+    createGridLayout();
+};
 
+function eraseGrid (){
+    gridContainer.replaceChildren();
+    createGridLayout();
 }
+
+function changeColor () {
+    if(isUserColorEnabled.checked == true) {
+        event.target.style.backgroundColor = userCurrentColorSelection.value;
+    } else if(isRandomColorEnabled.checked == true) {
+        let randomCurrentColorSelection = "#" + ((1 << 24) * Math.random() | 0).toString(16).padStart(6, "0");
+        randomCurrentColorPreview.style.backgroundColor = randomCurrentColorSelection;
+        event.target.style.backgroundColor = randomCurrentColorSelection;
+    } else if (isEraserEnabled.checked == true) {
+        event.target.style.backgroundColor = "#D3D3D3";
+    };
+};

@@ -9,18 +9,26 @@
   </head>
   <body>
     <h1 id="title">Etch-a-Sketch!</h1>
+    <section id="grid-size-settings"></section>
     <section id="color-settings">
-      <h3>Colors: </h2>
+      <h3>Actions: </h2>
       <input type="radio" id="user-color-selection" name="color-selector">
-      <label for="user-color-selection">Pick my color!</label><br>
+      <label for="user-color-selection">Paint with my color!</label><br>
       <input type="color" id="user-current-color" value="#8EB288">
-      <h3>or</h2>
       <input type="radio" id="random-color-selection" name="color-selector">
-      <label for="random-color-selection">Randomize for me!</label><br>
+      <label for="random-color-selection">Paint with random color!</label><br>
       <div id="random-color-selection-preview"></div>
+      <input type="radio" id="eraser-selection" name="color-selector">
+      <label for="eraser-selection">Erase!</label><br>
     </section>
     <section id="grid-container"></section>
-    <section id="grid-size-settings">
+    <section id="grid-options">
+      <h3>Options: </h2>
+        <input type="radio" id="mouseover-grid-nav-option" name="grid-nav-selector">
+        <label for="mouseover-grid-nav-option">Mouseover</label><br>
+        <input type="radio" id="onclick-grid-nav-option" name="grid-nav-selector">
+        <label for="onclick-grid-nav-option">On Click</label><br>
+    </section>
     <footer><div><p>Copyright © bjake5.github.io 2024 | <a href="https://bjake5.github.io/">bjake5</a></p></div></footer>
   </body>
 </html>
