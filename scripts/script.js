@@ -13,11 +13,7 @@ const isOnClickEnabled = document.getElementById("onclick-grid-nav-option");
 const currentGridSizeLabel = document.createElement("div");
 const changeGridSizeButton = document.createElement("button");
 const eraseGridButton = document.createElement("button");
-/*
-let height = screen.height;
-gridContainer.style.minHeight = gridViewportHeight + "px";
-gridContainer.style.minWidth = gridViewportHeight + "px";
-*/
+
 
 let gridViewportHeight = 600;
 let rows = 16;
@@ -26,6 +22,10 @@ let columns = 16;
 createGridLayout();
 
 function createGridLayout() {
+    let height = screen.height;
+    gridViewportHeight = height * .6;
+    gridContainer.style.height = gridViewportHeight + "px";
+    gridContainer.style.width = gridViewportHeight + "px";
     let squareHeight = gridViewportHeight / rows + "px";
     let numberOfSquares = rows * columns; 
     
