@@ -18,8 +18,10 @@ body {
 #grid-size-settings button {
     margin-left: 10px;
     font-family: 'Courier New', Courier, monospace;
-    border: 2px solid darkgrey;
+    border: 2px solid lightgrey;
     border-radius: 5px;
+    background-color: #8EB288;
+    padding: 10px;
 }
 
 #color-settings, #grid-options {
