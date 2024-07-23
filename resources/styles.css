@@ -30,6 +30,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    margin: 10px;
 }
 
 #color-settings *, #grid-options * {
@@ -84,5 +85,8 @@ input[type=radio] {
     * {    
         font-size: 10px;
     };
+    .color-selector label {
+        font-size: 10px;
+    }
 
 }
