@@ -9,10 +9,38 @@ body {
     background-color: #8EB288;
 }
 
-#color-picker {
+#color-settings {
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
 }
+
+#color-settings * {
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+    font-size: 15px;
+}
+
+input[type=radio] {
+    border: 2px;
+    height: 2em;
+}
+
+#random-color-selection-preview {
+    height: 15px;
+    width: 15px;
+    background-color: #8EB288;
+    border: 3px solid lightgray;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
 
 #grid-container {
     display: flex;

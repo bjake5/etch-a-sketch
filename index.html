@@ -9,12 +9,18 @@
   </head>
   <body>
     <h1 id="title">Etch-a-Sketch!</h1>
-    <section id="color-picker">
-     <p>Pick your color!&nbsp;</p>
-     <input type="color" id="current-color" value="#8EB288">
-     <p>&nbsp;or Randomize!</p>
+    <section id="color-settings">
+      <h3>Colors: </h2>
+      <input type="radio" id="user-color-selection" name="color-selector">
+      <label for="user-color-selection">Pick my color!</label><br>
+      <input type="color" id="user-current-color" value="#8EB288">
+      <h3>or</h2>
+      <input type="radio" id="random-color-selection" name="color-selector">
+      <label for="random-color-selection">Randomize for me!</label><br>
+      <div id="random-color-selection-preview"></div>
     </section>
     <section id="grid-container"></section>
+    <section id="grid-size-settings">
     <footer><div><p>Copyright © bjake5.github.io 2024 | <a href="https://bjake5.github.io/">bjake5</a></p></div></footer>
   </body>
 </html>
