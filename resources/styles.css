@@ -79,7 +79,7 @@ input[type=radio] {
 }
 
 @media (max-width : 700px) {
-    p, h2, h3 {    
+    p, h2, h3, div {    
         font-size: .5em;
     };
     h1 {
