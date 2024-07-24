@@ -41,6 +41,7 @@ h1 {
 #color-settings {
     flex: 1;
     justify-items: left;
+    align-items: center;
 }
 
 #color-settings button {
@@ -85,7 +86,7 @@ input[type=color] {
         margin-right: .5px;
     }
     
-    p, h2, h3, div, button {    
+    p, h2, h3, div, button, span {    
         font-size: .5em;
     }
     h1 {
