@@ -1,12 +1,9 @@
 body {
     display: flex;
-    margin:0px;
-    padding: 0px;
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 15px;
     background-color: #8EB288;
 }
 
@@ -39,7 +36,7 @@ body {
     justify-content: center;
     text-align: center;
     margin: 5px;
-    font-size: 15px;
+    font-size: .8em;
 }
 
 #color-settings button {
@@ -51,7 +48,7 @@ body {
 
 input[type=radio] {
     border: 2px;
-    height: 2em;
+    height: .8em;
 }
 
 #random-color-selection-preview {
@@ -81,12 +78,11 @@ input[type=radio] {
     color: green;
 }
 
-@media only screen and (max-width : 700px) {
-    body {    
-        font-size: 10px;
+@media (max-width : 700px) {
+    p, h2, h3 {    
+        font-size: .5em;
     };
     h1 {
-        font-size: 15px;
-    }
-
+        font-size: 1em;
+    };
 }
