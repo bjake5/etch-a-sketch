@@ -24,8 +24,8 @@ createGridLayout();
 function createGridLayout() {
     let height = screen.height;
     let width = screen.width;
-    if (height > width) gridViewportHeight = width * .9;
-    if (width > height) gridViewportHeight = height * .9;
+    if (height > width) gridViewportHeight = width * .6;
+    if (width > height) gridViewportHeight = height * .6;
     gridContainer.style.height = gridViewportHeight + "px";
     gridContainer.style.width = gridViewportHeight + "px";
     let squareHeight = gridViewportHeight / rows + "px";
