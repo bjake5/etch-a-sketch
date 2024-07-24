@@ -1,6 +1,6 @@
 const gridContainer = document.querySelector("#grid-container");
 const gridSizeSettings = document.querySelector("#grid-size-settings");
-const colorSettings = document.querySelector("color-settings");
+const colorSettings = document.querySelector("#color-settings");
 const isUserColorEnabled = document.getElementById("user-color-selection");
 const userCurrentColorSelection = document.getElementById("user-current-color");
 const isRandomColorEnabled = document.getElementById("random-color-selection");
@@ -55,6 +55,9 @@ function createGridLayout() {
 function runEtchASketch () {
     // Set default color to the background color
     isUserColorEnabled.checked = true;
+    userCurrentColorSelection.style.backgroundColor = "#8EB288";
+    randomCurrentColorPreview.style.backgroundColor = "#8EB288";
+    
 
     // Set default behavior to mouseover
     isMouseoverEnabled.checked = true;
@@ -112,7 +115,7 @@ function changeColor () {
         event.target.style.backgroundColor = userCurrentColorSelection.value;
     } else if(isRandomColorEnabled.checked == true) {
         let randomCurrentColorSelection = "#" + ((1 << 24) * Math.random() | 0).toString(16).padStart(6, "0");
-        randomCurrentColorPreview.style.backgroundColor = randomCurrentColorSelection;
+        randomCurrentColorPreview.value = randomCurrentColorSelection;
         event.target.style.backgroundColor = randomCurrentColorSelection;
     } else if (isEraserEnabled.checked == true) {
         event.target.style.backgroundColor = "#D3D3D3";
